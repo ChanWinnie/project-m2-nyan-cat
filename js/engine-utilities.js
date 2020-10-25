@@ -9,7 +9,7 @@
 const nextEnemySpot = (enemies) => {
   // enemySpots will refer to the number of spots available (can you calculate it?)
   const enemySpots = GAME_WIDTH / ENEMY_WIDTH;
-
+  
   // To find out where to place an enemy, we first need to find out which are the spots available.
   // We don't want to place two enemies in the same lane. To accomplish this, we first create an
   // array with 5 elements (why 5?) and each element is false.

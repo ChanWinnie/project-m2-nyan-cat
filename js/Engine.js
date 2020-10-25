@@ -26,6 +26,9 @@ class Engine {
     // This code is to see how much time, in milliseconds, has elapsed since the last
     // time this method was called.
     // (new Date).getTime() evaluates to the number of milliseconds since January 1st, 1970 at midnight.
+    console.log(this.player);
+    console.log(this.enemies);
+
     if (this.lastFrame === undefined) {
       this.lastFrame = new Date().getTime();
     }
@@ -58,16 +61,51 @@ class Engine {
     // and return from the method (Why is the return statement important?)
     if (this.isPlayerDead()) {
       window.alert('Game over');
+      location.reload();
       return;
     }
-
+    
     // If the player is not dead, then we put a setTimeout to run the gameLoop in 20 milliseconds
     setTimeout(this.gameLoop, 20);
+
   };
 
   // This method is not implemented correctly, which is why
   // the burger never dies. In your exercises you will fix this method.
+  //436 is location of burger on y axis
+  //150 not 156 -> tiny gap
   isPlayerDead = () => {
-    return false;
+    let hit = false;
+    this.enemies.forEach((enemy) => {
+      if (enemy.x === this.player.x && enemy.y + 150 >= 436) {
+        console.log("HIT");
+        hit = true;
+      }
+    });
+      return hit;
   };
 }
+
+
+
+
+
+
+
+
+
+
+
+/*
+//MAYBE: 
+   this.enemies.forEach((enemy) => {
+      if (enemy.x === this.player.x && enemy.y >= 436) {  
+        console.log("hit");
+        return true;
+        } 
+    })
+    console.log("miss");
+    return false;  
+  }
+
+*/
