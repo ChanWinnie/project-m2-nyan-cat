@@ -26,9 +26,14 @@ class Engine {
     // This code is to see how much time, in milliseconds, has elapsed since the last
     // time this method was called.
     // (new Date).getTime() evaluates to the number of milliseconds since January 1st, 1970 at midnight.
-    console.log(this.player);
-    console.log(this.enemies);
-
+ 
+    // Play music when the games
+    playAudio();
+    // Start button disappears when clicked
+    startBtn.style.display = "none";
+    // Start image disappears when game starts
+    coverStart.style.display = "none";
+    
     if (this.lastFrame === undefined) {
       this.lastFrame = new Date().getTime();
     }
@@ -58,54 +63,80 @@ class Engine {
     }
 
     // We check if the player is dead. If he is, we alert the user
-    // and return from the method (Why is the return statement important?)
+    // and return from the method (Why is the return statement important?
+    // If player dies, currentHits increase by 1 and text is updated
     if (this.isPlayerDead()) {
-      window.alert('Game over');
-      location.reload();
+      currentHits += 1;
+      hitCount.innerHTML = `Bludger Hits: ${currentHits}`;
+      replayLives();
       return;
-    }
-    
-    // If the player is not dead, then we put a setTimeout to run the gameLoop in 20 milliseconds
+    } 
+
+  // If the player is not dead, then we put a setTimeout to run the gameLoop in 20 milliseconds
     setTimeout(this.gameLoop, 20);
-
   };
-
+  
   // This method is not implemented correctly, which is why
   // the burger never dies. In your exercises you will fix this method.
-  //436 is location of burger on y axis
-  //150 not 156 -> tiny gap
+  //615 harry's location on y axis
   isPlayerDead = () => {
     let hit = false;
     this.enemies.forEach((enemy) => {
-      if (enemy.x === this.player.x && enemy.y + 150 >= 436) {
-        console.log("HIT");
+      if (enemy.x === this.player.x && enemy.y + 25 >= 615) {   
+        //console.log("HIT"); multiple why? setTimeout is 20 ms, so console logs same bludger if still touching harry after frame
         hit = true;
-      }
+        enemy.update();
+      } 
     });
+      score += 10;
+      scoreText.innerHTML = `Score: ${score}`; 
+      getScore();
       return hit;
-  };
+  }
+}
+
+playAudio = () => {
+  audio.play();
+}
+
+pauseAudio = () => {
+  audio.pause();
+}
+
+// Game over if hit 3 times
+let currentHits = 0;
+replayLives = () => {
+  if (currentHits === 3) {
+    pauseAudio();
+    gameEnd.style.width = "750px";
+    gameEnd.style.height = "750px";
+    matchOver.innerHTML = "MATCH OVER";
+    matchOverText.innerHTML = "OFF TO THE HOSPITAL WING YOU GO";
+    setTimeout(location.reload.bind(location), 1000);
+  } else {
+    gameEngine.gameLoop();
+  }
+ return;
+}
+
+// Level becomes more difficult based on score and game win 
+let score = 0;
+getScore = () => {
+  if (score > 7500 && score < 9990) {
+    MAX_ENEMIES = 5;
+  } else if (score > 10000 && score < 14990) {
+    MAX_ENEMIES = 6;
+    speed = Math.random() / 2 + 0.45;
+  } else if (score === 15000) {
+    pauseAudio();
+    gameEnd.style.width = "750px";
+    gameEnd.style.height = "750px";
+    matchOver.innerHTML = "GRYFFINDOR WINS";
+    setTimeout(location.reload.bind(location), 1000);
+  }
+  return;
 }
 
 
 
 
-
-
-
-
-
-
-
-/*
-//MAYBE: 
-   this.enemies.forEach((enemy) => {
-      if (enemy.x === this.player.x && enemy.y >= 436) {  
-        console.log("hit");
-        return true;
-        } 
-    })
-    console.log("miss");
-    return false;  
-  }
-
-*/

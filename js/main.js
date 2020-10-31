@@ -23,5 +23,74 @@ const keydownHandler = (event) => {
 // We add an event listener to document. document the ancestor of all DOM nodes in the DOM.
 document.addEventListener('keydown', keydownHandler);
 
-// We call the gameLoop method to start the game
-gameEngine.gameLoop();
+let body = document.querySelector("body");
+body.style.margin = 0;
+body.style.fontFamily = "Arial,serif";
+
+let app = document.getElementById("app");
+app.style.display = "flex";
+app.style.alignItems = "center";
+app.style.justifyContent = "center";
+app.style.width = "750px";
+app.style.color = "white";
+
+// Add for when game ends
+let gameEnd = document.getElementById("gameEnd");
+gameEnd.style.position = "absolute";
+gameEnd.style.zIndex = 2250;
+gameEnd.style.display = "flex";
+gameEnd.style.flexDirection = "column";
+gameEnd.style.justifyContent = "center";
+gameEnd.style.alignItems = "center";
+gameEnd.style.backgroundColor = "goldenrod";
+// Heading for game end
+let matchOver = document.getElementById("matchOver");
+matchOver.style.fontSize = "70px";
+// Paragraph for game end
+let matchOverText = document.getElementById("matchOverText");
+matchOverText.style.fontSize = "25px";
+
+// Add the start button and start page
+let startBtn = document.getElementById("startBtn");
+startBtn.style.position = "absolute";
+startBtn.style.fontSize = " 45px";
+startBtn.style.padding = "15px 60px";
+startBtn.style.border = "none";
+startBtn.style.outline = "none";
+startBtn.style.borderRadius = " 4px";
+startBtn.style.backgroundColor = "goldenrod";
+startBtn.style.color = "white";
+startBtn.style.zIndex = 2250;
+let coverStart = document.getElementById("imageCover");
+coverStart.style.width = "750px";
+coverStart.style.height = "750px";
+coverStart.style.zIndex = 220;
+coverStart.style.position = "absolute";
+coverStart.style.objectFit = "cover";
+coverStart.style.objectPosition = "60% 50%";
+
+// Add the audio
+let audio = document.getElementById("audio");
+audio.volume = 0.1;
+audio.currentTime = 3;
+
+// We call the gameLoop method to start the game, when the button is fixed
+startBtn.addEventListener("click", gameEngine.gameLoop);
+
+// Add hit counter
+let hitCount = document.getElementById("hitCounter");
+hitCount.style.zIndex = 2100;
+hitCount.style.position = "absolute";
+hitCount.style.top = "3%";
+hitCount.style.left = "1%";
+hitCount.style.fontSize = "30px";
+
+// Add score
+let scoreText = document.getElementById("scoreBoard");
+scoreText.style.zIndex = 2100;
+scoreText.style.position = "absolute";
+scoreText.style.top = "3%";
+scoreText.style.left = "580px";
+scoreText.style.fontSize = "30px";
+
+

@@ -16,7 +16,7 @@ const nextEnemySpot = (enemies) => {
   // We then use forEach to iterate through all the enemies.
   // If you look at the constructor of the Enemy class, you can see that every instance will have a spot property.
   // We can use this property to modify the spotsTaken array.
-  const spotsTaken = [false, false, false, false, false];
+  const spotsTaken = [false, false, false, false, false, false];
   enemies.forEach((enemy) => {
     spotsTaken[enemy.spot] = true;
   });
@@ -41,9 +41,8 @@ const nextEnemySpot = (enemies) => {
 const addBackground = (root) => {
   // We create a new img DOM node.
   const bg = document.createElement('img');
-
   // We set its src attribute and the height and width CSS attributes
-  bg.src = 'images/stars.png';
+  bg.src = 'images/sky.png';
   bg.style.height = `${GAME_HEIGHT}px`;
   bg.style.width = `${GAME_WIDTH}px`;
 
