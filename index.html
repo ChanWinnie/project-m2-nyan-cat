@@ -1,9 +1,19 @@
 <html>
   <head>
-    <title>Nyan Kat</title>
+    <title>🧹 Quidditch 🧹</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app" class="app">
+      <span id="hitCounter"></span>
+      <span id="scoreBoard"></span>
+      <button id="startBtn">START</button>
+      <img src = "images/hoops.png" id="imageCover">
+      <audio id="audio" src="images/quidditchmusic.mp3"></audio>
+      <div id="gameEnd">
+        <h1 id="matchOver"></h1>
+        <p id="matchOverText"></p>
+      </div>
+    </div>
     <script src="js/data.js"></script>
     <script src="js/Enemy.js"></script>
     <script src="js/engine-utilities.js"></script>
@@ -11,4 +21,3 @@
     <script src="js/Player.js"></script>
     <script src="js/main.js"></script>
   </body>
-</html>
