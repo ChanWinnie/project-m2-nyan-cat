@@ -17,7 +17,7 @@ class Engine {
     // We add the background image to the game
     addBackground(this.root);
   }
-
+  
   // The gameLoop will run every few milliseconds. It does several things
   //  - Updates the enemy positions
   //  - Detects a collision between the player and any enemy
@@ -73,7 +73,7 @@ class Engine {
     } 
 
   // If the player is not dead, then we put a setTimeout to run the gameLoop in 20 milliseconds
-    setTimeout(this.gameLoop, 20);
+  setTimeout(this.gameLoop, 20);
   };
   
   // This method is not implemented correctly, which is why
@@ -110,21 +110,23 @@ replayLives = () => {
   }
  return;
 }
-
+ 
 // Level becomes more difficult based on score and game win at 15000 points
 let score = 0;
 getScore = () => {
   if (score > 7500 && score < 9990) {
     MAX_ENEMIES = 5;
-  } else if (score > 10000 && score < 14990) {
+  } else if (score > 10000 && score < 14999) {
     MAX_ENEMIES = 6;
     speed = Math.random() / 2 + 0.45;
-  } else if (score === 15000) {
+  } else if (score > 15000) {
     audio.pause();
     gameEnd.style.width = "750px";
     gameEnd.style.height = "750px";
+    gameEnd.style.backgroundImage = "url(./images/quidditchWin.png)";
     matchOver.innerHTML = "GRYFFINDOR WINS";
-    setTimeout(location.reload.bind(location), 1000);
+    matchOver.style.color = "goldenrod";
+    clearTimeout(setTimeFunc);
   }
   return;
 }
