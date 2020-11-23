@@ -28,7 +28,7 @@ class Engine {
     // (new Date).getTime() evaluates to the number of milliseconds since January 1st, 1970 at midnight.
  
     // Play music when the games
-    playAudio();
+    audio.play();
     // Start button disappears when clicked
     startBtn.style.display = "none";
     // Start image disappears when game starts
@@ -95,19 +95,11 @@ class Engine {
   }
 }
 
-playAudio = () => {
-  audio.play();
-}
-
-pauseAudio = () => {
-  audio.pause();
-}
-
 // Game over if hit 3 times
 let currentHits = 0;
 replayLives = () => {
   if (currentHits === 3) {
-    pauseAudio();
+    audio.pause();
     gameEnd.style.width = "750px";
     gameEnd.style.height = "750px";
     matchOver.innerHTML = "MATCH OVER";
@@ -119,7 +111,7 @@ replayLives = () => {
  return;
 }
 
-// Level becomes more difficult based on score and game win 
+// Level becomes more difficult based on score and game win at 15000 points
 let score = 0;
 getScore = () => {
   if (score > 7500 && score < 9990) {
@@ -128,7 +120,7 @@ getScore = () => {
     MAX_ENEMIES = 6;
     speed = Math.random() / 2 + 0.45;
   } else if (score === 15000) {
-    pauseAudio();
+    audio.pause();
     gameEnd.style.width = "750px";
     gameEnd.style.height = "750px";
     matchOver.innerHTML = "GRYFFINDOR WINS";

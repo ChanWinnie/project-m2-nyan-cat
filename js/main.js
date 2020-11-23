@@ -70,11 +70,11 @@ coverStart.style.objectFit = "cover";
 coverStart.style.objectPosition = "60% 50%";
 
 // Add the audio
-let audio = document.getElementById("audio");
+let audio = new Audio("/images/quidditchmusic.mp3");
 audio.volume = 0.1;
 audio.currentTime = 3;
 
-// We call the gameLoop method to start the game, when the button is fixed
+// We call the gameLoop method to start the game, when the button is clicked
 startBtn.addEventListener("click", gameEngine.gameLoop);
 
 // Add hit counter
@@ -92,5 +92,6 @@ scoreText.style.position = "absolute";
 scoreText.style.top = "3%";
 scoreText.style.left = "580px";
 scoreText.style.fontSize = "30px";
+
 
 
