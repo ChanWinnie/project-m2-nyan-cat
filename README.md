@@ -1,6 +1,6 @@
 # Object Oriented Programming Game Project
 
-<p align="center"><img src="./images/gameStart.png"><img src="./images/gamePlay.png"><img src="./images/matchOver.png"><img src="./images/matchWon.png"></p>
+<p align="center"><img src="./images/gameStart.png"><img src="./images/gamePlay.png"><img src="./images/matchOver.png"><img src="./images/gryffindorWins.png"></p>
 
 # Modifications
 
