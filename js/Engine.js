@@ -68,6 +68,7 @@ class Engine {
     if (this.isPlayerDead()) {
       currentHits += 1;
       hitCount.innerHTML = `Bludger Hits: ${currentHits}`;
+      hitCount.style.fontWeight = 'bold';
       replayLives();
       return;
     } 
@@ -90,6 +91,7 @@ class Engine {
     });
       score += 10;
       scoreText.innerHTML = `Score: ${score}`; 
+      scoreText.style.fontWeight = 'bold';
       getScore();
       return hit;
   }
@@ -98,7 +100,7 @@ class Engine {
 // Game over if hit 3 times
 let currentHits = 0;
 replayLives = () => {
-  if (currentHits === 3) {
+  if (currentHits === 30) {
     audio.pause();
     gameEnd.style.width = "750px";
     gameEnd.style.height = "750px";
@@ -116,7 +118,7 @@ let score = 0;
 getScore = () => {
   if (score > 7500 && score < 9990) {
     MAX_ENEMIES = 5;
-  } else if (score > 10000 && score < 14999) {
+  } else if (score > 10000 && score < 14990) {
     MAX_ENEMIES = 6;
     speed = Math.random() / 2 + 0.45;
   } else if (score > 15000) {
@@ -126,7 +128,7 @@ getScore = () => {
     gameEnd.style.backgroundImage = "url(./images/quidditchWin.png)";
     matchOver.innerHTML = "GRYFFINDOR WINS";
     matchOver.style.color = "goldenrod";
-    clearTimeout(setTimeFunc);
+    clearTimeout(gameloop());
   }
   return;
 }

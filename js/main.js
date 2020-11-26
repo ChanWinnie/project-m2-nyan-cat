@@ -82,7 +82,7 @@ let hitCount = document.getElementById("hitCounter");
 hitCount.style.zIndex = 2100;
 hitCount.style.position = "absolute";
 hitCount.style.top = "3%";
-hitCount.style.left = "1%";
+hitCount.style.left = "2%";
 hitCount.style.fontSize = "30px";
 
 // Add score
@@ -90,7 +90,7 @@ let scoreText = document.getElementById("scoreBoard");
 scoreText.style.zIndex = 2100;
 scoreText.style.position = "absolute";
 scoreText.style.top = "3%";
-scoreText.style.left = "580px";
+scoreText.style.left = "560px";
 scoreText.style.fontSize = "30px";
 
 

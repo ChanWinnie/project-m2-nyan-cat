@@ -9,7 +9,7 @@
 - Added a soundtrack to the game
 - Added a start button to the game
 - Added a hit counter: the game is over if the player is hit 3 times
-- Added a score counter: difficulty level increases as the score increases & the player wins at a certain score
+- Added a score counter: difficulty level increases as the score increases & the player wins at a certain score (15,000)
 - Player is brought back to the start page after losing the game 
 
 # Netlify
