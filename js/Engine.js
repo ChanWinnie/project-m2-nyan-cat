@@ -100,7 +100,7 @@ class Engine {
 // Game over if hit 3 times
 let currentHits = 0;
 replayLives = () => {
-  if (currentHits === 30) {
+  if (currentHits === 3) {
     audio.pause();
     gameEnd.style.width = "750px";
     gameEnd.style.height = "750px";
